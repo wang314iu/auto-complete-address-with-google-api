@@ -3,9 +3,7 @@ import {
   ComponentFactoryResolver, EventEmitter, Output, AfterViewInit
 } from '@angular/core';
 import { Subject } from 'rxjs';
-
 import { debounceTime } from 'rxjs/operators';
-
 import { AutoCompleteService } from './auto-complete.service';
 import { LoadingComponent } from './loading/loading.component';
 import { NgModel } from '@angular/forms';
@@ -67,8 +65,7 @@ export class AutoCompleteDirective implements OnInit, AfterViewInit {
         this.ngModelChange.emit(val)
         this.dismissPredictions();
       }
-    })
-    const tmp = componentFactory.outputs;
+    });
   }
 
   dismissPredictions() {

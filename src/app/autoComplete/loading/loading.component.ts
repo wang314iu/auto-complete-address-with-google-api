@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef, Output } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({

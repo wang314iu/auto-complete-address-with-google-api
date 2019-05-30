@@ -10,7 +10,7 @@ import { LoadingComponent } from './loading/loading.component';
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDcxe2aVJrZXoOVL-cWmfKZO4PnADqVPgE',
+      apiKey: '', // add your google api key here
       libraries: ['places']
     })
   ],
