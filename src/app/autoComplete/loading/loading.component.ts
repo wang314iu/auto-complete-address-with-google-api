@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -17,23 +17,23 @@ import { Subject } from 'rxjs';
        cursor: pointer
        }
        `,
-    `entry:hover {
-        background-color: yellow;
-      }`
   ]
 })
 export class LoadingComponent implements OnInit, AfterViewInit {
   private contents: Array<string>;
   list_items: Array<HTMLElement>;
   selected: Subject<string> = new Subject();
+  addressEl: any;
 
-  constructor(private _changeRef: ChangeDetectorRef) { }
+  constructor(
+    private _changeRef: ChangeDetectorRef,
+    private _ref: ElementRef) { }
 
   ngOnInit() {
   }
   ngAfterViewInit() {
-
   }
+
   setContents(val: Array<string>): void {
     this.contents = val;
     this._changeRef.detectChanges();
@@ -41,5 +41,16 @@ export class LoadingComponent implements OnInit, AfterViewInit {
   selectAddress(ev) {
     const target = <HTMLElement>ev.target;
     this.selected.next(target.title);
+  }
+  focus() {
+    this._ref.nativeElement.focus();
+  }
+  highlight(ev) {
+    const target = <HTMLElement>ev.target;
+    target.style.backgroundColor = '#e6eeff';
+  }
+  removeHighlight(ev) {
+    const target = <HTMLElement>ev.target;
+    target.style.backgroundColor = 'transparent';
   }
 }

@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {}
 
-  popVal() {
+  logVal() {
     console.log('input value one: ', this.val.one);
     console.log('input value two: ', this.val.two);
   }

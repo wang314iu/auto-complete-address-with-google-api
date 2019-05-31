@@ -1,3 +1,4 @@
 <div class="card">
-  <li class="entry" *ngFor="let address of contents" title="{{address}}" class="entry" (click)="selectAddress($event)">{{address}}</li>
+  <li class="entry" *ngFor="let address of contents" title="{{address}}" class="entry" (click)="selectAddress($event)"
+    (mouseover)="highlight($event)" (mouseout)="removeHighlight($event)" #item>{{address}}</li>
 </div>
